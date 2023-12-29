@@ -30,11 +30,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
 }
 .student-Name {
   width: 10vw;
-  height: 3vh;
+  height: 4vh;
   background-color: blue;
+  font-size: 1.3rem;
 }
 
 /* 학생 정보 */
@@ -48,7 +50,7 @@
   justify-content: center;
   flex-direction: column;
 
-  margin: 1vh;
+  margin: 0lvh;
 }
 .Introduction {
   width: 70vw;
@@ -83,5 +85,5 @@
   width: 70vw;
   height: 6vh;
   background-color: black;
-  margin: 1iouvh;
+  margin: 1vh;
 }
