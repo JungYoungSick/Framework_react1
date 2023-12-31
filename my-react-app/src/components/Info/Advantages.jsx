@@ -1,5 +1,9 @@
 import React from "react";
 
-export default function Advantages({ name }) {
-  return <h1 className={`Introduction ${name}`}>{`${name} 장점`}</h1>;
+export default function Advantages({ selectedStudentName }) {
+  return (
+    <h1
+      className={`Introduction ${selectedStudentName}`}
+    >{`${selectedStudentName}의 장점`}</h1>
+  );
 }

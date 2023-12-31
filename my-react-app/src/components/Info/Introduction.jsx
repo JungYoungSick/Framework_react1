@@ -1,5 +1,9 @@
 import React from "react";
 
-export default function Introduction({ name }) {
-  return <h1 className={`Introduction ${name}`}>{`${name} 소개`}</h1>;
+export default function Introduction({ selectedStudentName }) {
+  return (
+    <h1
+      className={`Introduction ${selectedStudentName}`}
+    >{`${selectedStudentName}의 소개`}</h1>
+  );
 }
