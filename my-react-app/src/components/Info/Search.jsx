@@ -1,36 +1,30 @@
-// search.jsx
 import React, { useState } from "react";
-import studentList from "../studentList"; // studentList 파일 경로에 따라 수정
 
-const Search = ({ onNameChange }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+export default function Search({ data }) {
+  const [inputValue, setInputValue] = useState("");
 
-  const handleSearch = () => {
-    const searchedStudent = studentList.find((student) =>
-      student.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    if (searchedStudent) {
-      // 검색된 학생이 있을 경우 Advantages와 Introduction으로 이름 변경
-      onNameChange("Advantages", "Introduction");
-    } else {
-      // 검색된 학생이 없을 경우 알림 창 생성
-      alert("값이 없습니다.");
-    }
+  // 입력값이 변경될 때 호출되는 핸들러 함수
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
   };
 
+  // 폼 제출 시 호출되는 핸들러 함수
+  const nameSubmit = (event) => {
+    event.preventDefault();
+  };
   return (
-    <div>
-      <h2>학생 검색</h2>
+    <form onSubmit={nameSubmit}>
+      {/* 입력값을 상태로 설정하고 핸들러 함수를 등록 */}
       <input
         type="text"
-        placeholder="검색어 입력"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        ID="search"
+        value={inputValue}
+        onChange={handleInputChange}
       />
-      <button onClick={handleSearch}>검색</button>
-    </div>
+      {/* 제출 버튼 */}
+      <button type="submit" ID="search-But">
+        SHOW
+      </button>
+    </form>
   );
-};
-
-export default Search;
+}

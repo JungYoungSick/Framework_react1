@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# studentList Info
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+프레임워크 react를 사용.
+학생의 이름을 클릭 시 소개와 장점의 데이터가 출력되며, json의 데이터를 정렬하여 출력해줍니다.<br>
+학생의 이름을 검색 시 data.json에서 원하는 데이터 값을 찾아 데이터를 출력해줍니다.(구현실패)<br>
 
-## Available Scripts
+## My-react-app 폴더구성
 
-In the project directory, you can run:
+my-react-app<br>
+/<br>
+|-- build<br>
+|--node_modules<br>
+|--public/ <br>
+| |-- index.html ---#html의 기본 구성을 담당하며 <div ID=root>값만이 작성되어 있습니다.<br>
+| |-- manifest.json ---#react 프레임 워크를 설치 시 남은 파일입니다.<br>
+| |-- Student.css ---#index.html 및 전체적인 html의 스타일을 담당하고 있습니다.<br>
+|<br>
+|-- src/ ---#소스 디렉토리<br>
+| |-- components/ ---#작업 구성 디렉토리<br>
+| |-- Info/ ---#module<br>
+| |-- Advantages.jsx ---#data.json의 데이터 값에 따른 학생의 이름이 변경됩니다("'ooo'의 장점")<br>
+| |-- Introduction.jsx ---#data.json의 데이터 값에 따른 학생의 이름이 변경됩니다("'ooo'의 소개")<br>
+| |-- Search.jsx ---#data.json의 데이터 값에서 학생의 이름을 조회하여 결과값을 출력 또는 alut를 사용하여 오류 수정을 요청합니다.<br>
+| |-- App.jsx ---#StudentInfo와 StudentList를 연결하여 학생이름을 클릭 시 데이터 값을 Data.json에서 호출받아 응답해주는 역할을 합니다. 그리고 학생의 이름을 sort로 순차정렬해줍니다.<br>
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| |-- StudentInfo.jsx ---#학생의 소개, 장점을 data를 받아 클릭 시 출력해주는 역할을 합니다.<br>
+| |-- StudentList.jsx ---#학생들의 목록을 정렬하여 출력해주는 역할을 합니다.<br>
+| <br>
+| |-- Data<br>
+| |-- data.json ---#학생들의 이름이 담긴 데이터 파일입니다.<br>
+| <br>
+| |-- index.css<br>
+| |-- index.js ---#App의 jsonData를 랜더해줍니다. 그리고 파일을 연결해주는 App.jsx보다 상위 파일입니다.<br>
+| |-- reportWebVitals.js<br>
+| |-- setupTests.js<br>
+|<br>
+|-- .gitignore ---#Git에서 무시해야 하는 파일 및 폴더 목록<br>
+|-- package-lock.json<br>
+|-- package.json<br>
+|-- README.md<br>
