@@ -37,8 +37,12 @@
   height: 4vh;
   /* background-color: blue; */
   font-size: 1.3rem;
+  margin-left: 10px;
   margin-bottom: 10px;
   transition: transform 1.2s ease-in-out;
+}
+.student-Name.selected {
+  transform: translateX(9vw);
 }
 
 /* 학생 정보 */
