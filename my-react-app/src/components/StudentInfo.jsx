@@ -1,17 +1,20 @@
 import React from "react";
 import Advantages from "./Info/Advantages.jsx";
-import Introduction from "./Info/Introduction.jsx";
+import Introductions from "./Info/Introductions.jsx";
 import Search from "./Info/Search.jsx";
 
-export default function studentInfo({ data, selectedStudent }) {
+export default function StudentInfo({ data, selectedStudent, Advan, Intro }) {
   return (
-    <div className="student-Info">
+    <div className="student-info">
       {/* 학생 소개 */}
-      <Advantages selectedStudentName={selectedStudent} />
-      <p className="student-Text1">{data.text1}</p>
+      <Advantages selectedStudentName={selectedStudent} Advantage={Advan} />
+
       {/* 학생 장점 */}
-      <Introduction selectedStudentName={selectedStudent} />
-      <p className="student-Text2">{data.text2}</p>
+      <Introductions
+        selectedStudentName={selectedStudent}
+        Introduction={Intro}
+      />
+
       <Search data={data} />
     </div>
   );

@@ -15,6 +15,11 @@ export default function App({ jsonData }) {
     setSelectedStudent(studentName);
   };
 
+  // 선택된 학생 정보 가져오기
+  const selectedStudentData = jsonData.students.find(
+    (student) => student.name === selectedStudent
+  );
+
   return (
     <div id="root">
       <StudentList
@@ -22,7 +27,14 @@ export default function App({ jsonData }) {
         onStudentClick={handleStudentClick}
       />
       <div className="line"></div>
-      <StudentInfo data={jsonData} selectedStudent={selectedStudent} />
+      {selectedStudentData && (
+        <StudentInfo
+          data={jsonData}
+          selectedStudent={selectedStudentData.name}
+          Advan={selectedStudentData.text1}
+          Intro={selectedStudentData.text2}
+        />
+      )}
     </div>
   );
 }
