@@ -15,16 +15,9 @@ export default function Search({ data }) {
   return (
     <form onSubmit={nameSubmit}>
       {/* 입력값을 상태로 설정하고 핸들러 함수를 등록 */}
-      <input
-        type="text"
-        ID="search"
-        value={inputValue}
-        onChange={handleInputChange}
-      />
+      <input type="text" value={inputValue} onChange={handleInputChange} />
       {/* 제출 버튼 */}
-      <button type="submit" ID="search-But">
-        SHOW
-      </button>
+      <button type="submit">SHOW</button>
     </form>
   );
 }
