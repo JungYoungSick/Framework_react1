@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 
-export default function StudentList({ students, onStudentClick }) {
-  const [selectedStudent, setSelectedStudent] = useState(null);
+export default function clickStudent({ students }) {
+  const [selectedText, setSelectedText] = useState(null);
 
   const handleStudentClick = (name) => {
-    // 클릭한 학생의 이름을 상태에 저장
-    setSelectedStudent(name);
-
-    // 부모 컴포넌트로 클릭 이벤트 전달
-    onStudentClick(name);
+    setSelectedText(name);
   };
 
   return (
@@ -16,9 +12,8 @@ export default function StudentList({ students, onStudentClick }) {
       {students.map((student, index) => (
         <div
           className={`student-Name ${
-            selectedStudent === student.name ? "selected" : ""
+            selectedText === student.name ? "selected" : ""
           }`}
-          id={`studentName${index}`}
           key={index}
           onClick={() => handleStudentClick(student.name)}
         >
