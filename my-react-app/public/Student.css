@@ -41,21 +41,6 @@
   transition: transform 1.2s ease-in-out;
 }
 
-.student-Name:hover {
-  transform: translateX(9vw); /* 텍스트를 오른쪽으로 20px 이동 */
-}
-.student-Name:hover:after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: #ff0000; /* 동그란 박스의 배경색 설정 */
-  border-radius: 50%; /* 동그란 모양을 만들기 위한 속성 */
-  top: 50%; /* 텍스트의 중앙에 위치 */
-  left: calc(100% + 5px); /* 텍스트의 오른쪽 끝으로 이동 (+5px는 간격) */
-  transform: translate(-50%, -50%); /* 동그란 박스를 정확한 중앙으로 이동 */
-}
-
 /* 학생 정보 */
 .student-Info {
   width: 75vw;
