@@ -1,29 +1,29 @@
+// app.jsx
 import React, { useState } from "react";
-import StudentList from "./StudentList";
-import StudentInfo from "./StudentInfo";
-// import Search from "./search";
+import Advantages from "./Advantages"; // Advantages 컴포넌트 파일 경로에 따라 수정
+import Introduction from "./Introduction"; // Introduction 컴포넌트 파일 경로에 따라 수정
+import Search from "./Info/Search"; // Search 컴포넌트 파일 경로에 따라 수정
 
-export default function App({ jsonData }) {
-  const [selectedStudent, setSelectedStudent] = useState(
-    jsonData.students.length > 0 ? jsonData.students[0].name : ""
-  );
+const App = () => {
+  const [firstName, setFirstName] = useState("Advantages");
+  const [lastName, setLastName] = useState("Introduction");
 
-  const sortedStudents = jsonData.students.sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
-
-  const handleStudentClick = (studentName) => {
-    setSelectedStudent(studentName);
+  const handleNameChange = (newFirstName, newLastName) => {
+    setFirstName(newFirstName);
+    setLastName(newLastName);
   };
 
   return (
-    <div id="root">
-      <StudentList
-        students={sortedStudents}
-        onStudentClick={handleStudentClick}
-      />
-      <div className="line"></div>
-      <StudentInfo data={jsonData} selectedStudent={selectedStudent} />
+    <div>
+      <h1>
+        {firstName} {lastName}
+      </h1>
+      <Search onNameChange={handleNameChange} />
+      {/* 나머지 컴포넌트 및 내용 추가 */}
+      <Advantages />
+      <Introduction />
     </div>
   );
-}
+};
+
+export default App;
