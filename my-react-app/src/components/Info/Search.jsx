@@ -1,23 +1,32 @@
+// Search.jsx
 import React, { useState } from "react";
 
-const Search = ({ onSearch }) => {
-  const [searchedStudent, setSearchedStudent] = useState("");
+export default function Search({ onSearch }) {
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearch = () => {
-    // 검색 로직 추가 (프롬프트 등)
-    const studentName = prompt("Enter student name:");
-    setSearchedStudent(studentName);
-    onSearch(studentName); // 검색된 학생의 이름을 부모 컴포넌트에 전달
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleSearchClick = () => {
+    if (searchTerm.trim() !== "") {
+      onSearch(searchTerm);
+    } else {
+      alert("검색어를 입력해주세요.");
+    }
   };
 
   return (
     <div>
-      <input type="text" id="search" value={searchedStudent} />
-      <button type="button" onClick={handleSearch}>
-        Search
+      <input
+        type="text"
+        id="Search"
+        value={searchTerm}
+        onChange={handleInputChange}
+      />
+      <button type="button" onClick={handleSearchClick}>
+        SHOW
       </button>
     </div>
   );
-};
-
-export default Search;
+}

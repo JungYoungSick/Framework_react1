@@ -1,6 +1,7 @@
+// StudentInfo.jsx
 import React, { useState } from "react";
-import Advantages from "./Info/Advantages.jsx";
-import Introduction from "./Info/Introduction.jsx";
+import Advantages from "./Info/Advantages";
+import Introduction from "./Info/Introduction";
 import Search from "./Info/Search";
 
 export default function StudentInfo({ data, selectedStudent }) {
@@ -21,7 +22,7 @@ export default function StudentInfo({ data, selectedStudent }) {
       <p className="student-Text2">{data.text2}</p>
 
       {/* 검색창 */}
-      <Search onSearch={handleSearch} />
+      <Search onSearch={handleSearch} data={data} />
     </div>
   );
 }
