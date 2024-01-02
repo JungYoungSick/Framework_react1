@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import StudentList from "../StudentList";
+import Advantages from "./Advantages";
+import Introductions from "./Introductions";
 
 function Search() {
   const [inputValue, setInputValue] = useState("");
@@ -16,7 +19,7 @@ function Search() {
       const response = await fetch("../Data/data.json");
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(`HTTP 오류! 상태 코드: ${response.status}`);
       }
 
       const data = await response.json();
@@ -26,10 +29,7 @@ function Search() {
 
       if (matchingData) {
         // 일치하는 데이터가 있을 때
-        setSearchResult({
-          advantages: matchingData.Advantages,
-          introductions: matchingData.Introductions,
-        });
+        setSearchResult(matchingData);
         setError(null); // 초기화
       } else {
         // 일치하는 데이터가 없을 때
@@ -37,14 +37,10 @@ function Search() {
         setError("찾는 값이 없습니다.");
       }
     } catch (error) {
+      console.error("에러 발생:", error);
       setError("오류가 있습니다.");
     }
   };
-
-  const AdvantagesComponent = React.lazy(() => import("./Advantages.jsx"));
-  const IntroductionsComponent = React.lazy(() =>
-    import("./Introductions.jsx")
-  );
 
   return (
     <div>
@@ -56,16 +52,23 @@ function Search() {
       {error && <div>{error}</div>}
 
       {searchResult && (
-        <React.Suspense fallback={<div>Loading...</div>}>
-          <AdvantagesComponent
-            selectedStudentName={inputValue}
-            Advantage={searchResult.advantages}
-          />
-          <IntroductionsComponent
-            selectedStudentName={inputValue}
-            Introduction={searchResult.introductions}
-          />
-        </React.Suspense>
+        <>
+          {searchResult.value && (
+            <>
+              <StudentList students={searchResult.value} />
+              <React.Suspense fallback={<div>Loading...</div>}>
+                <Advantages
+                  selectedStudentName={searchResult.name}
+                  Advantage={searchResult.Advantages}
+                />
+                <Introductions
+                  selectedStudentName={searchResult.name}
+                  Introduction={searchResult.Introductions}
+                />
+              </React.Suspense>
+            </>
+          )}
+        </>
       )}
     </div>
   );
