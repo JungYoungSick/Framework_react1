@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import StudentList from "./StudentList";
 import StudentInfo from "./StudentInfo";
 import Search from "./Info/Search";
-
+//
 export default function App({ jsonData }) {
   const [selectedStudent, setSelectedStudent] = useState(
     jsonData.students.length > 0 ? jsonData.students[0].name : ""
