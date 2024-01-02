@@ -1,7 +1,6 @@
 import React from "react";
 import Advantages from "./Info/Advantages.jsx";
 import Introductions from "./Info/Introductions.jsx";
-import Search from "./Info/Search.jsx";
 
 export default function StudentInfo({ data, selectedStudent, Advan, Intro }) {
   return (
@@ -14,8 +13,6 @@ export default function StudentInfo({ data, selectedStudent, Advan, Intro }) {
         selectedStudentName={selectedStudent}
         Introduction={Intro}
       />
-
-      <Search data={data} />
     </div>
   );
 }
