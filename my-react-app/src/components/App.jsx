@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import StudentList from "./StudentList";
 import StudentInfo from "./StudentInfo";
+import Search from "./Info/Search";
 
 export default function App({ jsonData }) {
   const [selectedStudent, setSelectedStudent] = useState(
@@ -27,14 +28,17 @@ export default function App({ jsonData }) {
         onStudentClick={handleStudentClick}
       />
       <div className="line"></div>
-      {selectedStudentData && (
-        <StudentInfo
-          data={jsonData}
-          selectedStudent={selectedStudentData.name}
-          Advan={selectedStudentData.text1}
-          Intro={selectedStudentData.text2}
-        />
-      )}
+      <div>
+        {selectedStudentData && (
+          <StudentInfo
+            data={jsonData}
+            selectedStudent={selectedStudentData.name}
+            Advan={selectedStudentData.text1}
+            Intro={selectedStudentData.text2}
+          />
+        )}
+        <Search jsonData={jsonData} setSelectedStudent={setSelectedStudent} />
+      </div>
     </div>
   );
 }

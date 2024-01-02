@@ -50,7 +50,7 @@
 /* 학생 정보 */
 .student-Info {
   width: 40vw;
-  height: 95vh;
+  height: 80vh;
   /* background-color: red; */
 
   display: flex;
@@ -105,15 +105,26 @@
 }
 
 /* 검색란 */
-#search {
-  width: 70vw;
+#Search {
+  width: 35vw;
   height: 6vh;
-  background-color: brown;
   margin-top: 1vh;
+  border-radius: 10px;
+  border-style: none;
 }
 #search-But {
-  width: 70vw;
+  width: 35vw;
   height: 6vh;
-  background-color: black;
+  background-color: #919191;
+  opacity: 0.5;
   margin: 1vh;
+  border-radius: 10px;
+  border-style: none;
+  color: #f3f3f3;
+}
+.searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
